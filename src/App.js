@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 import Stats from './components/Stats/Stats';
 import TodoList from './components/TodoList/TodoList';
-import initialTodos from './todos.json';
 import ToDoForm from './components/ToDoForm/ToDoForm';
 import Filter from './components/Filter/Filter';
 
 class App extends Component {
   state = {
-    todos: initialTodos,
+    todos: [],
     filter: '',
   };
 
@@ -65,6 +64,20 @@ class App extends Component {
       0
     );
   };
+
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.todos !== prevState.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
 
   render() {
     const { todos, filter } = this.state;
