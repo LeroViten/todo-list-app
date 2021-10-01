@@ -14,6 +14,20 @@ class App extends Component {
     }));
   };
 
+  toggleCompleted = (todoId) => {
+    this.setState((prevState) => ({
+      todos: prevState.todos.map((todo) => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -25,7 +39,11 @@ class App extends Component {
     return (
       <>
         <Stats todos={todos} doneTodos={completedTodos} />
-        <TodoList todos={todos} onDeleteToDo={this.deleteTodo} />
+        <TodoList
+          todos={todos}
+          onDeleteToDo={this.deleteTodo}
+          onToggleCompleted={this.toggleCompleted}
+        />
       </>
     );
   }
