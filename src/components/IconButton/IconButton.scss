@@ -1,0 +1,21 @@
+@import 'styles/variables';
+
+.IconButton {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  color: $white-color;
+  font: inherit;
+  background-color: $blue;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-duration $transition-function;
+
+  &:hover {
+    background-color: $blue-accent;
+  }
+}

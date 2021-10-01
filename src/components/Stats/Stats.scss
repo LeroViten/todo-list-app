@@ -1,0 +1,11 @@
+@import 'styles/shared.scss';
+
+.todoStats {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: fit-content;
+  border: 1px solid $black-color;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
