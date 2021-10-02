@@ -99,7 +99,7 @@ class App extends Component {
 
     return (
       <>
-        <IconButton toggleModal={this.toggleModal}>
+        <IconButton toggleModal={this.toggleModal} aria-label="add to do item">
           <AddIcon width="30" height="30" fill="white" />
         </IconButton>
         {showModal && (
